@@ -1,4 +1,5 @@
-/* Problem_1: Divide a large integer array among MPI processes. Each process exchanges its boundary
+/*
+Problem_1: Divide a large integer array among MPI processes. Each process exchanges its boundary
 elements with neighboring processes using point-to-point communication and computes a local result.
 Sample Input
 Number of processes: 4
@@ -13,7 +14,11 @@ P1: Right boundary sent = 60
 P2: Left boundary received = 60
 P2: Right boundary sent = 90
 P3: Left boundary received = 90
-Boundary exchange completed successfully. */
+Boundary exchange completed successfully.
+
+run project = /usr/bin/mpicc problem_1.c -o problem_1
+then /usr/bin/mpirun -np 4 ./problem_1
+*/
 
 #include <stdio.h>
 #include <mpi.h>
@@ -143,6 +148,8 @@ int main(int argc, char *argv[])
             fflush(stdout);
         }
     }
+
+    MPI_Barrier(MPI_COMM_WORLD);
 
     if (rank == 0)
         printf("Boundary exchange completed successfully.\n");
