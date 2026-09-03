@@ -3,7 +3,8 @@ Problem_6: Divide a one-dimensional array among MPI processes. Exchange halo/bou
 between neighboring processes using MPI_Send and MPI_Recv, then perform a stencil computation.
 
 Sample Input
-Number of processes: 4Array: 10 20 30 40 50 60 70 80
+Number of processes: 4
+Array: 10 20 30 40 50 60 70 80
 Radius = 1
 Distribution:
 P0: 10 20
