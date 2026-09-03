@@ -15,6 +15,10 @@ Total round trips: 5
 Average round-trip : 0.000018 seconds
 Average one-way: 0.000009 seconds
 Repeat the experiment for 64 bytes, 256 bytes, 1 KB, 4 KB, 16 KB, 64 KB, and 1 MB.
+
+
+run project = /usr/bin/mpicc problem_4.c -o problem_4
+then /usr/bin/mpirun -np 4 ./problem_4
 */
 
 #include <stdio.h>

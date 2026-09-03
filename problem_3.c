@@ -18,6 +18,10 @@ P3 receives 100 from P2
 P3 sends 100 to P0
 P0 receives 100 from P3
 Ring communication completed
+
+
+run project = /usr/bin/mpicc problem_3.c -o problem_3
+then /usr/bin/mpirun -np 4 ./problem_3
 */
 
 #include <stdio.h>
