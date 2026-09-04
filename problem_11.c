@@ -17,7 +17,7 @@ P3 received: Iterations = 1000, Threshold = 50, Block size = 256
 
 Compile and run:
     /usr/bin/mpicc problem_11.c -o problem_11
-    /usr/bin/mpirun -np 3 ./problem_11
+    /usr/bin/mpirun -np 4 ./problem_11
 */
 
 #include <stdio.h>
@@ -39,15 +39,12 @@ int main(int argc, char *argv[])
     int result = config[0] * config[2];
     (void)result;
 
-    MPI_Barrier(MPI_COMM_WORLD);
-
-    if (rank == 0)
+    for (int process = 0; process < size; process++)
     {
-        for (int process = 0; process < size; process++)
-        {
+        if (rank == process)
             printf("P%d received: Iterations = %d, Threshold = %d, Block size = %d\n",
-                   process, config[0], config[1], config[2]);
-        }
+                   rank, config[0], config[1], config[2]);
+        MPI_Barrier(MPI_COMM_WORLD);
     }
 
     MPI_Finalize();
