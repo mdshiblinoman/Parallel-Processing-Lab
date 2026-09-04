@@ -21,8 +21,10 @@ Global Minimum = 10
 Average = 65.00
 
 Compile and run:
-    /usr/bin/mpicc problem_14.c -o problem_14
+    /usr/bin/mpicc -Wall -Wextra problem_14.c -o problem_14
     /usr/bin/mpirun -np 4 ./problem_14
+
+No input is required.
 */
 
 #include <stdio.h>
